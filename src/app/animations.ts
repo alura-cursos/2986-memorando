@@ -1,4 +1,4 @@
-import { animate, keyframes, state, style, transition, trigger } from '@angular/animations';
+import { animate, group, keyframes, query, state, style, transition, trigger } from '@angular/animations';
 
 export const highlightedStateTrigger = trigger('highlightedState', [
   state('default', style({
@@ -53,5 +53,38 @@ export const filterTrigger = trigger('filterAnimation', [
   ]),
   transition(':leave', [
     animate('200ms cubic-bezier(.13,.9,.8,.1)', style({ opacity: 0, width: 0}))
+  ])
+])
+
+export const formButtonTrigger = trigger('formButton', [
+  transition('invalid => valid', [
+    query('#botao-salvar', [
+      group([
+        animate(200, style({
+          backgroundColor: '#63B77C'
+        })),
+        animate(100, style({
+          transform: 'scale(1.1)'
+        })),
+      ]),
+      animate(200, style({
+        transform: 'scale(1)'
+      }))
+    ]),
+  ]),
+  transition('valid => invalid', [
+    query('#botao-salvar', [
+      group([
+        animate(200, style({
+          backgroundColor: '#6C757D'
+        })),
+        animate(100, style({
+          transform: 'scale(1.1)'
+        })),
+      ]),
+      animate(200, style({
+        transform: 'scale(1)'
+      }))
+    ])
   ])
 ])
