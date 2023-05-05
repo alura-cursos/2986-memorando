@@ -39,7 +39,7 @@
       "id": 7,
       "descricao": "Alimentar os gatos",
       "categoria": "Casa",
-      "statusFinalizado": false,
+      "statusFinalizado": true,
       "prioridade": "Alta"
     },
     {
